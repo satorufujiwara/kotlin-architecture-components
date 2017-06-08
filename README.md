@@ -15,7 +15,7 @@ Dagger2
 ----
 Dagger version is 2.11
 
-use [dagger.android](https://google.github.io/dagger//android.html)
+Using [dagger.android](https://google.github.io/dagger//android.html).
 
 Other Libraries
 ---------
@@ -35,13 +35,14 @@ Tips
 #### Multibinding
 
 To use Multibinding for ViewModel's injection like [this](https://github.com/googlesamples/android-architecture-components/commit/619ef780f2989a1925f05a3801272b3b9d27bf03),
-use `` for inject `creator`.
+use `@JvmSuppressWildcards` for inject `creators`.
 
 ```kotlin
 class ViewModelFactory @Inject
 constructor(private val creators: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>)
     : ViewModelProvider.Factory {
 ```
+[Here](https://github.com/satorufujiwara/kotlin-architecture-components/blob/master/app/src/main/java/jp/satorufujiwara/kotlin/di/ViewModelFactory.kt) is all code.
 
 #### DataBinding
 
