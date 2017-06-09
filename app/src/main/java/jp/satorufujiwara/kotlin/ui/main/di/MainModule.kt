@@ -12,12 +12,12 @@ import jp.satorufujiwara.kotlin.ui.main.MainViewModel
 @Module
 internal abstract class MainModule {
 
-    @Binds
-    @IntoMap
-    @ViewModelKey(MainViewModel::class)
-    abstract fun bindMainViewModel(viewModel: MainViewModel): ViewModel
+  @Binds
+  @IntoMap
+  @ViewModelKey(MainViewModel::class)
+  abstract fun bindMainViewModel(viewModel: MainViewModel): ViewModel
 
-    @ContributesAndroidInjector
-    abstract fun contributeMainFragment(): MainFragment
+  @ContributesAndroidInjector
+  abstract fun contributeMainFragment(): MainFragment
 
 }

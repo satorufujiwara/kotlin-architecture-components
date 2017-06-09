@@ -10,10 +10,10 @@ import jp.satorufujiwara.kotlin.ui.main.di.MainModule
 @Module
 internal abstract class ActivityModule {
 
-    @Binds
-    abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
+  @Binds
+  abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 
-    @ContributesAndroidInjector(modules = arrayOf(MainModule::class))
-    internal abstract fun contributeMainActivity(): MainActivity
+  @ContributesAndroidInjector(modules = arrayOf(MainModule::class))
+  internal abstract fun contributeMainActivity(): MainActivity
 
 }

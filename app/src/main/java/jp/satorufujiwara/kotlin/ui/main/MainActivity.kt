@@ -13,17 +13,17 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), LifecycleRegistryOwner, HasSupportFragmentInjector {
 
-    @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
-    @Inject lateinit var androidInjector: DispatchingAndroidInjector<Fragment>
-    private val lifecycleRegistry by lazy { android.arch.lifecycle.LifecycleRegistry(this) }
+  @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
+  @Inject lateinit var androidInjector: DispatchingAndroidInjector<Fragment>
+  private val lifecycleRegistry by lazy { android.arch.lifecycle.LifecycleRegistry(this) }
 
-    override fun getLifecycle() = lifecycleRegistry
+  override fun getLifecycle() = lifecycleRegistry
 
-    override fun supportFragmentInjector() = androidInjector
+  override fun supportFragmentInjector() = androidInjector
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
-        setContentFragment(R.id.containerLayout) { MainFragment.newInstance() }
-    }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.main_activity)
+    setContentFragment(R.id.containerLayout) { MainFragment.newInstance() }
+  }
 }

@@ -15,26 +15,26 @@ import javax.inject.Singleton
 @Module
 class DataModule {
 
-    @Singleton @Provides
-    fun provideGson() = GsonBuilder()
-            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-            .create()
+  @Singleton @Provides
+  fun provideGson() = GsonBuilder()
+      .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+      .create()
 
-    @Singleton @Provides
-    fun providesOkHttp(): OkHttpClient = OkHttpClient.Builder()
-            .build()
+  @Singleton @Provides
+  fun providesOkHttp(): OkHttpClient = OkHttpClient.Builder()
+      .build()
 
-    @Singleton @Provides
-    fun provideRetrofit(oktHttpClient: OkHttpClient, gson: Gson): Retrofit
-            = Retrofit.Builder()
-            .client(oktHttpClient)
-            .baseUrl("https://api.github.com")
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .build()
+  @Singleton @Provides
+  fun provideRetrofit(oktHttpClient: OkHttpClient, gson: Gson): Retrofit
+      = Retrofit.Builder()
+      .client(oktHttpClient)
+      .baseUrl("https://api.github.com")
+      .addConverterFactory(GsonConverterFactory.create(gson))
+      .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+      .build()
 
-    @Singleton @Provides
-    fun provideGitHubService(retrofit: Retrofit): GitHubService
-            = retrofit.create(GitHubService::class.java)
+  @Singleton @Provides
+  fun provideGitHubService(retrofit: Retrofit): GitHubService
+      = retrofit.create(GitHubService::class.java)
 
 }

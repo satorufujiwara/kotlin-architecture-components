@@ -9,7 +9,7 @@ import javax.inject.Singleton
 @Module(includes = arrayOf(DataModule::class))
 class AppModule {
 
-    @Singleton @Provides
-    fun provideAppLifecycleCallbacks(): AppLifecycleCallbacks = ReleaseAppLifecycleCallbacks()
+  @Singleton @Provides
+  fun provideAppLifecycleCallbacks(): AppLifecycleCallbacks = ReleaseAppLifecycleCallbacks()
 
 }

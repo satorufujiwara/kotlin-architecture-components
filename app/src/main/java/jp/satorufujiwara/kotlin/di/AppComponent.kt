@@ -9,17 +9,17 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(modules = arrayOf(
-        AndroidSupportInjectionModule::class,
-        AppModule::class,
-        ActivityModule::class)
+    AndroidSupportInjectionModule::class,
+    AppModule::class,
+    ActivityModule::class)
 )
 interface AppComponent : AndroidInjector<App> {
 
-    @Component.Builder
-    interface Builder {
-        @BindsInstance fun application(application: App): Builder
-        fun build(): AppComponent
-    }
+  @Component.Builder
+  interface Builder {
+    @BindsInstance fun application(application: App): Builder
+    fun build(): AppComponent
+  }
 
-    override fun inject(app: App)
+  override fun inject(app: App)
 }

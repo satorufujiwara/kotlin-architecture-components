@@ -4,8 +4,8 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 
 inline fun FragmentActivity.setContentFragment(containerViewId: Int, f: () -> Fragment): Fragment? {
-    val manager = supportFragmentManager
-    val fragment = manager?.findFragmentById(containerViewId)
-    fragment?.let { return fragment }
-    return f().apply { manager?.beginTransaction()?.add(containerViewId, this)?.commit() }
+  val manager = supportFragmentManager
+  val fragment = manager?.findFragmentById(containerViewId)
+  fragment?.let { return fragment }
+  return f().apply { manager?.beginTransaction()?.add(containerViewId, this)?.commit() }
 }
