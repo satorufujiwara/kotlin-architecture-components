@@ -1,25 +1,24 @@
 package jp.satorufujiwara.kotlin.data.di
 
-import com.google.gson.FieldNamingPolicy
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import com.squareup.moshi.KotlinJsonAdapterFactory
+import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import jp.satorufujiwara.kotlin.data.api.GitHubService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
 @Module
 class DataModule {
 
   @Singleton @Provides
-  fun provideGson() = GsonBuilder()
-      .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-      .create()
+  fun provideMoshi() = Moshi.Builder()
+      .add(KotlinJsonAdapterFactory())
+      .build()
 
   @Singleton @Provides
   fun providesOkHttp(): OkHttpClient = OkHttpClient.Builder()
@@ -28,11 +27,11 @@ class DataModule {
       .build()
 
   @Singleton @Provides
-  fun provideRetrofit(oktHttpClient: OkHttpClient, gson: Gson): Retrofit
+  fun provideRetrofit(oktHttpClient: OkHttpClient, moshi: Moshi): Retrofit
       = Retrofit.Builder()
       .client(oktHttpClient)
       .baseUrl("https://api.github.com")
-      .addConverterFactory(GsonConverterFactory.create(gson))
+      .addConverterFactory(MoshiConverterFactory.create(moshi))
       .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
       .build()
 

@@ -23,7 +23,7 @@ Other Libraries
  * DataBinding - https://developer.android.com/topic/libraries/data-binding/index.html
  * OkHttp - http://square.github.io/okhttp
  * Retrofit - http://square.github.io/retrofit
- * Gson - https://github.com/google/gson
+ * Moshi - https://medium.com/square-corner-blog/kotlins-a-great-language-for-json-fcd6ef99256b
  * Glide - https://github.com/bumptech/glide
  * RxJava - https://github.com/ReactiveX/RxJava
  * RxAndroid - https://github.com/ReactiveX/RxAndroid
