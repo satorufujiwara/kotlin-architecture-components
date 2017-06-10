@@ -50,7 +50,7 @@ To use DataBinding with Kotlin, use `com.android.databinding:compiler` like belo
 
 ```Groovy
 dependencies {
-    kapt 'com.android.databinding:compiler:2.3.1'
+    kapt 'com.android.databinding:compiler:2.3.3'
 }
 ```
 
