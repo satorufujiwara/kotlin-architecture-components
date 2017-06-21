@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import jp.satorufujiwara.kotlin.R
 import jp.satorufujiwara.kotlin.data.model.Repo
@@ -23,11 +24,16 @@ class MainFragment : Fragment(), LifecycleRegistryOwner, Injectable {
 
   @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
   private val viewModel by lazy { ViewModelProviders.of(activity, viewModelFactory).get(MainViewModel::class.java) }
-  private val binding by lazy { DataBindingUtil.setContentView<MainFragmentBinding>(activity, R.layout.main_fragment) }
+  private lateinit var binding: MainFragmentBinding
   private val lifecycleRegistry by lazy { LifecycleRegistry(this) }
   private val adapter = MainAdapter()
 
   override fun getLifecycle() = lifecycleRegistry
+
+  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+      DataBindingUtil.inflate<MainFragmentBinding>(inflater, R.layout.main_fragment, container, false).also {
+        binding = it
+      }.root
 
   override fun onActivityCreated(savedInstanceState: Bundle?) {
     super.onActivityCreated(savedInstanceState)
