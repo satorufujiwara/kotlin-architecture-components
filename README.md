@@ -5,11 +5,11 @@ This is a sample app that uses Android Architecture Components with Kotlin and D
 
 Architecture Components
 ---
-Architecture Components version is 1.0.0-alpha2
+Architecture Components version is 1.0.0-alpha3
 
 Kotlin
 ----
-Kotlin version is 1.1.2-4
+Kotlin version is 1.1.3
 
 Dagger2
 ----
