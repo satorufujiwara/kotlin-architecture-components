@@ -8,7 +8,7 @@ import jp.satorufujiwara.kotlin.ui.main.MainActivity
 import jp.satorufujiwara.kotlin.ui.main.di.MainModule
 
 @Module
-internal abstract class ActivityModule {
+internal abstract class UiModule {
 
   @Binds
   abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
