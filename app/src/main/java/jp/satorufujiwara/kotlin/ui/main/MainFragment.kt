@@ -17,12 +17,14 @@ import jp.satorufujiwara.kotlin.data.model.Repo
 import jp.satorufujiwara.kotlin.databinding.MainFragmentBinding
 import jp.satorufujiwara.kotlin.databinding.MainRepoItemBinding
 import jp.satorufujiwara.kotlin.di.Injectable
+import jp.satorufujiwara.kotlin.ui.app.UserViewModel
 import jp.satorufujiwara.kotlin.util.ext.observe
 import javax.inject.Inject
 
 class MainFragment : Fragment(), LifecycleRegistryOwner, Injectable {
 
   @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
+  @Inject lateinit var userViewModel: UserViewModel
   private val viewModel by lazy { ViewModelProviders.of(activity, viewModelFactory).get(MainViewModel::class.java) }
   private lateinit var binding: MainFragmentBinding
   private val lifecycleRegistry by lazy { LifecycleRegistry(this) }
@@ -48,7 +50,9 @@ class MainFragment : Fragment(), LifecycleRegistryOwner, Injectable {
         notifyDataSetChanged()
       }
     }
-    viewModel.ownerId.value = "satorufujiwara"
+    userViewModel.loginUserId.observe(this) {
+      viewModel.ownerId.value = it
+    }
   }
 
   companion object {
