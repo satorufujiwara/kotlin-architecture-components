@@ -1,6 +1,5 @@
 package jp.satorufujiwara.kotlin.ui.main
 
-import android.arch.lifecycle.LifecycleRegistryOwner
 import android.arch.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -11,13 +10,10 @@ import jp.satorufujiwara.kotlin.R
 import jp.satorufujiwara.kotlin.util.ext.setContentFragment
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), LifecycleRegistryOwner, HasSupportFragmentInjector {
+class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
   @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
   @Inject lateinit var androidInjector: DispatchingAndroidInjector<Fragment>
-  private val lifecycleRegistry by lazy { android.arch.lifecycle.LifecycleRegistry(this) }
-
-  override fun getLifecycle() = lifecycleRegistry
 
   override fun supportFragmentInjector() = androidInjector
 
