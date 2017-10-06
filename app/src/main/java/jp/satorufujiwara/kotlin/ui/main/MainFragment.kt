@@ -1,7 +1,5 @@
 package jp.satorufujiwara.kotlin.ui.main
 
-import android.arch.lifecycle.LifecycleRegistry
-import android.arch.lifecycle.LifecycleRegistryOwner
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
@@ -21,16 +19,13 @@ import jp.satorufujiwara.kotlin.ui.app.UserViewModel
 import jp.satorufujiwara.kotlin.util.ext.observe
 import javax.inject.Inject
 
-class MainFragment : Fragment(), LifecycleRegistryOwner, Injectable {
+class MainFragment : Fragment(), Injectable {
 
   @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
   @Inject lateinit var userViewModel: UserViewModel
   private val viewModel by lazy { ViewModelProviders.of(activity, viewModelFactory).get(MainViewModel::class.java) }
   private lateinit var binding: MainFragmentBinding
-  private val lifecycleRegistry by lazy { LifecycleRegistry(this) }
   private val adapter = MainAdapter()
-
-  override fun getLifecycle() = lifecycleRegistry
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
       DataBindingUtil.inflate<MainFragmentBinding>(inflater, R.layout.main_fragment, container, false).also {
