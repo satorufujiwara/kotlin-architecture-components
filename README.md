@@ -5,11 +5,11 @@ This is a sample app that uses Android Architecture Components with Kotlin and D
 
 Architecture Components
 ---
-Architecture Components version is 1.0.0-beta2
+Architecture Components version is 1.0.0
 
 Kotlin
 ----
-Kotlin version is 1.1.51
+Kotlin version is 1.1.60
 
 Dagger2
 ----
@@ -50,7 +50,7 @@ To use DataBinding with Kotlin, use `com.android.databinding:compiler` like belo
 
 ```Groovy
 dependencies {
-    kapt 'com.android.databinding:compiler:2.3.3'
+    kapt 'com.android.databinding:compiler:3.0.0'
 }
 ```
 
