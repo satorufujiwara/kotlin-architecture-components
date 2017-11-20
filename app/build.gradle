@@ -29,7 +29,8 @@ android {
 }
 
 ext.support_version = "26.1.0"
-ext.arch_version = "1.0.0-beta2"
+ext.arch_runtime_version = "1.0.3"
+ext.arch_version = "1.0.0"
 ext.dagger_version = "2.11"
 ext.moshi_version = "1.5.0"
 ext.retrofit_version = "2.3.0"
@@ -49,7 +50,7 @@ dependencies {
     kapt 'com.android.databinding:compiler:2.3.3'
 
     // architecture components
-    implementation "android.arch.lifecycle:runtime:$arch_version"
+    implementation "android.arch.lifecycle:runtime:$arch_runtime_version"
     implementation "android.arch.lifecycle:extensions:$arch_version"
     implementation "android.arch.lifecycle:reactivestreams:$arch_version"
     kapt "android.arch.lifecycle:compiler:$arch_version"
