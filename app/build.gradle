@@ -3,12 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    compileSdkVersion 27
+    buildToolsVersion '27.0.2'
     defaultConfig {
         applicationId "jp.satorufujiwara.kotlin"
         minSdkVersion 19
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -28,10 +28,10 @@ android {
     }
 }
 
-ext.support_version = "26.1.0"
+ext.support_version = "27.0.2"
 ext.arch_runtime_version = "1.0.3"
 ext.arch_version = "1.0.0"
-ext.dagger_version = "2.11"
+ext.dagger_version = "2.13"
 ext.moshi_version = "1.5.0"
 ext.retrofit_version = "2.3.0"
 ext.okhttp_version = "3.9.0"
