@@ -23,7 +23,7 @@ class MainFragment : Fragment(), Injectable {
 
   @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
   @Inject lateinit var userViewModel: UserViewModel
-  private val viewModel by lazy { ViewModelProviders.of(activity, viewModelFactory).get(MainViewModel::class.java) }
+  private lateinit var viewModel: MainViewModel
   private lateinit var binding: MainFragmentBinding
   private val adapter = MainAdapter()
 
@@ -34,6 +34,7 @@ class MainFragment : Fragment(), Injectable {
 
   override fun onActivityCreated(savedInstanceState: Bundle?) {
     super.onActivityCreated(savedInstanceState)
+    viewModel = ViewModelProviders.of(activity!!, viewModelFactory).get(MainViewModel::class.java)
     binding.recyclerView.adapter = adapter
     binding.recyclerView.layoutManager = LinearLayoutManager(activity)
 
