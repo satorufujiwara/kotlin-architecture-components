@@ -12,29 +12,35 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
 @Module
-class DataModule {
+internal object DataModule {
 
-  @Singleton @Provides
-  fun provideMoshi() = Moshi.Builder()
-      .add(KotlinJsonAdapterFactory())
-      .build()
+    @Singleton
+    @Provides
+    @JvmStatic
+    fun provideMoshi() = Moshi.Builder()
+            .add(KotlinJsonAdapterFactory())
+            .build()
 
 
-  @Singleton @Provides
-  fun providesOkHttp(): OkHttpClient = OkHttpClient.Builder()
-      .build()
+    @Singleton
+    @Provides
+    @JvmStatic
+    fun providesOkHttp(): OkHttpClient = OkHttpClient.Builder()
+            .build()
 
-  @Singleton @Provides
-  fun provideRetrofit(oktHttpClient: OkHttpClient, moshi: Moshi): Retrofit
-      = Retrofit.Builder()
-      .client(oktHttpClient)
-      .baseUrl("https://api.github.com")
-      .addConverterFactory(MoshiConverterFactory.create(moshi))
-      .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-      .build()
+    @Singleton
+    @Provides
+    @JvmStatic
+    fun provideRetrofit(oktHttpClient: OkHttpClient, moshi: Moshi): Retrofit = Retrofit.Builder()
+            .client(oktHttpClient)
+            .baseUrl("https://api.github.com")
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .build()
 
-  @Singleton @Provides
-  fun provideGitHubService(retrofit: Retrofit): GitHubService
-      = retrofit.create(GitHubService::class.java)
+    @Singleton
+    @Provides
+    @JvmStatic
+    fun provideGitHubService(retrofit: Retrofit): GitHubService = retrofit.create(GitHubService::class.java)
 
 }
