@@ -6,10 +6,12 @@ import jp.satorufujiwara.kotlin.AppLifecycleCallbacks
 import jp.satorufujiwara.kotlin.data.di.DataModule
 import javax.inject.Singleton
 
-@Module(includes = arrayOf(DataModule::class))
-class AppModule {
+@Module(includes = [DataModule::class])
+internal object AppModule {
 
-  @Singleton @Provides
-  fun provideAppLifecycleCallbacks(): AppLifecycleCallbacks = ReleaseAppLifecycleCallbacks()
+    @Singleton
+    @Provides
+    @JvmStatic
+    fun provideAppLifecycleCallbacks(): AppLifecycleCallbacks = ReleaseAppLifecycleCallbacks()
 
 }
