@@ -1,4 +1,4 @@
-package jp.satorufujiwara.kotlin.ui.main.di
+package jp.satorufujiwara.kotlin.di.module
 
 import android.arch.lifecycle.ViewModel
 import dagger.Binds

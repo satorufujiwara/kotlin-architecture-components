@@ -5,7 +5,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import jp.satorufujiwara.kotlin.ui.main.MainActivity
-import jp.satorufujiwara.kotlin.ui.main.di.MainModule
+import jp.satorufujiwara.kotlin.di.module.MainModule
 
 @Module
 internal abstract class UiModule {
