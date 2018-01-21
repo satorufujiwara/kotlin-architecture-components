@@ -13,7 +13,7 @@ internal abstract class UiModule {
   @Binds
   abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 
-  @ContributesAndroidInjector(modules = arrayOf(MainModule::class))
+  @ContributesAndroidInjector(modules = [MainModule::class])
   internal abstract fun contributeMainActivity(): MainActivity
 
 }
