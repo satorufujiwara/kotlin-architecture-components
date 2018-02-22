@@ -4,7 +4,7 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '27.0.2'
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "jp.satorufujiwara.kotlin"
         minSdkVersion 19
@@ -30,7 +30,7 @@ android {
 
 ext.support_version = "27.0.2"
 ext.arch_runtime_version = "1.0.3"
-ext.arch_version = "1.0.0"
+ext.arch_version = "1.1.0"
 ext.dagger_version = "2.14.1"
 ext.moshi_version = "1.5.0"
 ext.retrofit_version = "2.3.0"
@@ -63,7 +63,7 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:$dagger_version"
 
     // reactive
-    implementation "io.reactivex.rxjava2:rxjava:2.1.8"
+    implementation "io.reactivex.rxjava2:rxjava:2.1.9"
     implementation "io.reactivex.rxjava2:rxandroid:2.0.1"
 
     // data
