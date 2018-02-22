@@ -8,18 +8,20 @@ import jp.satorufujiwara.kotlin.App
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = arrayOf(
+@Component(modules = [
     AndroidSupportInjectionModule::class,
     AppModule::class,
-    UiModule::class)
-)
+    UiModule::class
+])
 interface AppComponent : AndroidInjector<App> {
 
-  @Component.Builder
-  interface Builder {
-    @BindsInstance fun application(application: App): Builder
-    fun build(): AppComponent
-  }
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        fun application(application: App): Builder
 
-  override fun inject(app: App)
+        fun build(): AppComponent
+    }
+
+    override fun inject(app: App)
 }
