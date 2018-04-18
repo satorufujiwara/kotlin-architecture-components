@@ -13,7 +13,7 @@ Kotlin version is 1.2.*
 
 Dagger2
 ----
-Dagger version is 2.14.*
+Dagger version is 2.15.*
 
 Using [dagger.android](https://google.github.io/dagger//android.html).
 
