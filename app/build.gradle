@@ -31,7 +31,7 @@ android {
 ext.support_version = "27.1.1"
 ext.arch_runtime_version = "1.1.1"
 ext.arch_version = "1.1.1"
-ext.dagger_version = "2.15"
+ext.dagger_version = "2.16"
 ext.moshi_version = "1.5.0"
 ext.retrofit_version = "2.3.0"
 ext.okhttp_version = "3.9.0"
@@ -39,7 +39,7 @@ ext.glide_version = "4.3.1"
 
 dependencies {
     // kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     // support libs
     implementation "com.android.support:appcompat-v7:$support_version"
